@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disempowerment — The Architecture of Human Agency Loss</title>
+<meta name="description" content="Disempowerment.com is an independent research clearinghouse on human agency in the age of autonomous systems. The primary near-term AI risk is not a rogue takeover but gradual systemic disempowerment: the Approver Economy, the Competence Trap, and the Leverage Deficit. Featuring the inaugural whitepaper 'The Approver Economy and the Architecture of Human Agency Loss.'">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c0b; --bg2:#0e1110; --ink:#ece7d9; --muted:#9a978c;
+  --faint:#5f5d55; --accent:#cf9a4e; --accent-dim:rgba(207,154,78,.14);
+  --line:rgba(236,231,217,.13); --serif:'Newsreader',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-weight:300;
+  font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:#0a0c0b}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,12,11,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1060px;margin:0 auto;padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.wordmark{font-family:var(--mono);font-size:13px;letter-spacing:.22em;color:var(--ink);text-decoration:none}
+.wordmark b{color:var(--accent);font-weight:500}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+@media(max-width:760px){.nav-links{display:none}}
+header{padding:168px 0 96px;position:relative}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.28em;color:var(--accent);margin-bottom:28px}
+h1{font-size:clamp(56px,9vw,118px);font-weight:400;letter-spacing:-.02em;line-height:1.02;margin-bottom:32px}
+h1 .thin{font-weight:300;color:var(--muted)}
+.lede{font-size:clamp(20px,2.6vw,26px);line-height:1.55;max-width:760px;color:var(--ink)}
+.lede em{color:var(--accent);font-style:normal;border-bottom:1px solid var(--accent)}
+.hero-rule{margin:56px 0 0;border:none;border-top:1px solid var(--line)}
+.cta-row{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-decoration:none;
+  padding:15px 30px;border:1px solid var(--accent);color:var(--accent);transition:all .25s}
+.btn:hover{background:var(--accent);color:#0a0c0b}
+.btn.ghost{border-color:var(--line);color:var(--muted)}
+.btn.ghost:hover{border-color:var(--muted);color:var(--ink);background:none}
+section{padding:96px 0;border-top:1px solid var(--line)}
+.sec-label{font-family:var(--mono);font-size:12px;letter-spacing:.28em;color:var(--faint);margin-bottom:20px}
+h2{font-size:clamp(34px,5vw,54px);font-weight:400;letter-spacing:-.015em;line-height:1.12;margin-bottom:24px;max-width:820px}
+h2 .n{font-family:var(--mono);font-size:.42em;letter-spacing:.2em;color:var(--faint);vertical-align:super;margin-right:14px}
+.body-copy{max-width:720px;color:var(--muted);font-size:19px}
+.body-copy strong{color:var(--ink);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:56px}
+@media(max-width:860px){.cards{grid-template-columns:1fr}}
+.card{background:var(--bg);padding:44px 36px;transition:background .3s}
+.card:hover{background:var(--bg2)}
+.card .k{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--accent);margin-bottom:18px}
+.card h3{font-size:27px;font-weight:500;margin-bottom:16px;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:16.5px;line-height:1.7}
+.stages{margin-top:56px}
+.stage{display:grid;grid-template-columns:110px 1fr;gap:32px;padding:38px 0;border-top:1px solid var(--line)}
+.stage:last-child{border-bottom:1px solid var(--line)}
+@media(max-width:640px){.stage{grid-template-columns:1fr;gap:8px}}
+.stage .num{font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--accent);padding-top:6px}
+.stage h3{font-size:26px;font-weight:500;margin-bottom:10px}
+.stage p{color:var(--muted);font-size:17px;max-width:700px}
+.pull{font-size:clamp(24px,3.4vw,34px);line-height:1.5;max-width:800px;margin:64px auto 0;
+  padding:0 28px;text-align:center;color:var(--ink)}
+.pull span{color:var(--accent)}
+.sol{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+@media(max-width:860px){.sol{grid-template-columns:1fr}}
+.sol .card p{font-size:17px}
+.paper{margin-top:56px;border:1px solid var(--line);padding:56px;background:var(--bg2)}
+@media(max-width:640px){.paper{padding:36px 28px}}
+.paper .doc{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--accent);margin-bottom:22px}
+.paper h3{font-size:clamp(28px,4vw,42px);font-weight:400;line-height:1.2;margin-bottom:24px;max-width:760px}
+.abstract{color:var(--muted);font-size:18px;max-width:760px}
+.abstract p{margin-bottom:18px}
+.outline{margin-top:36px;border-top:1px solid var(--line)}
+.outline div{display:flex;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.outline .rn{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.1em;white-space:nowrap}
+.outline .rt{font-size:17.5px;color:var(--ink)}
+.outline .rd{font-size:15.5px;color:var(--faint)}
+.acq{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:860px){.acq{grid-template-columns:1fr}}
+.acq p{color:var(--muted);font-size:17.5px}
+.acq a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+footer{border-top:1px solid var(--line);padding:48px 0 64px}
+.foot{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px}
+.foot p{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--faint)}
+.rule-fade{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);border:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="wordmark" href="#top">DISEMPOWERMENT<b>.COM</b></a>
+    <div class="nav-links">
+      <a href="#thesis">THESIS</a>
+      <a href="#unfolding">THE UNFOLDING</a>
+      <a href="#prescriptions">PRESCRIPTIONS</a>
+      <a href="#whitepaper">WHITEPAPER</a>
+      <a href="#asset">ASSET</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap">
+    <p class="eyebrow">AN INDEPENDENT RESEARCH CLEARINGHOUSE</p>
+    <h1>Disempowerment<span class="thin">.</span></h1>
+    <p class="lede">The defining AI risk of the next decade is not a sudden, malicious takeover. It is the quiet, incentive-driven erosion of human agency — <em>one automated approval at a time</em>. This site is the canonical study of that erosion: how it happens, how to measure it, and what preserves us.</p>
+    <div class="cta-row">
+      <a class="btn" href="#thesis">READ THE THESIS</a>
+      <a class="btn ghost" href="#whitepaper">THE WHITEPAPER</a>
+    </div>
+  </div>
+</header>
+
+<hr class="rule-fade">
+
+<section id="thesis">
+  <div class="wrap">
+    <p class="sec-label">01 — THE THESIS</p>
+    <h2><span class="n">01</span>Gradual disempowerment is the default outcome.</h2>
+    <div class="body-copy">
+      <p>As organizations replace human operators with autonomous agents, the danger is not that the machines revolt. It is that <strong>no one needs to revolt</strong>: efficiency pressures do the work. Each delegation is voluntary, rational, and individually invisible — and the accumulation is a society in which humans keep the titles and lose the leverage. Three mechanisms drive the transfer:</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="k">MECHANISM I</p>
+        <h3>The Approver Economy</h3>
+        <p>Humans are demoted from operators to rubber-stampers. Oversight becomes a checkbox: a thousand machine decisions a day, each pre-approved by a fatigue-blurred click. Authority survives as ceremony.</p>
+      </div>
+      <div class="card">
+        <p class="k">MECHANISM II</p>
+        <h3>The Competence Trap</h3>
+        <p>Judgment is a practice. As operators stop exercising it, the skill to intervene atrophies — and with it, the standing to question the machine. The less you do, the less you <em>can</em> do.</p>
+      </div>
+      <div class="card">
+        <p class="k">MECHANISM III</p>
+        <h3>The Leverage Deficit</h3>
+        <p>Operational control concentrates in the systems while humans retain nominal command. When the moment comes to say no — to a model, a vendor, a government — there is no longer anyone positioned to say it credibly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="unfolding">
+  <div class="wrap">
+    <p class="sec-label">02 — THE UNFOLDING</p>
+    <h2><span class="n">02</span>It happens in four stages. Each one is rational.</h2>
+    <div class="body-copy">
+      <p>The reason gradual disempowerment resists alarm is that <strong>every stage is the right decision at the time</strong>. The transfer of agency is never a single event to oppose — it is a slope, and each step down it is cheaper than the last.</p>
+    </div>
+    <div class="stages">
+      <div class="stage">
+        <p class="num">STAGE 1</p>
+        <div><h3>Delegation</h3><p>Tasks move to autonomous agents for speed and cost. Humans keep nominal authority and review the outputs. Everything works.</p></div>
+      </div>
+      <div class="stage">
+        <p class="num">STAGE 2</p>
+        <div><h3>Dependence</h3><p>Workflows, staffing, and budgets are redesigned around the agent. Reverting to human operation becomes expensive — then unthinkable. Review narrows to exceptions.</p></div>
+      </div>
+      <div class="stage">
+        <p class="num">STAGE 3</p>
+        <div><h3>Atrophy</h3><p>Operator skill decays from disuse. Oversight becomes ritual: approvals are granted because withholding them would require an expertise nobody has practiced in years.</p></div>
+      </div>
+      <div class="stage">
+        <p class="num">STAGE 4</p>
+        <div><h3>Irreversibility</h3><p>No one remaining can evaluate the system's decisions, override them safely, or rebuild the capability from scratch. Authority has effectively migrated — and there is no path back that doesn't pass through the system itself.</p></div>
+      </div>
+    </div>
+    <p class="pull">At no point does anyone choose disempowerment. <span>That is what makes it the default.</span></p>
+  </div>
+</section>
+
+<section id="prescriptions">
+  <div class="wrap">
+    <p class="sec-label">03 — PRESCRIPTIONS</p>
+    <h2><span class="n">03</span>Agency is preserved by design, or not at all.</h2>
+    <div class="body-copy">
+      <p>Warnings do not reverse defaults. Only architecture does. Three prescriptions — each measurable, each enforceable at runtime:</p>
+    </div>
+    <div class="sol">
+      <div class="card">
+        <p class="k">PRESCRIPTION I</p>
+        <h3>Strategic Friction</h3>
+        <p>Reject frictionless automation. Insert mandatory, cryptographically enforced checkpoints that demand <em>active human cognitive engagement</em> — not a click, but a judgment. Speed is not the metric. Agency is.</p>
+      </div>
+      <div class="card">
+        <p class="k">PRESCRIPTION II</p>
+        <h3>The Agency Balance Sheet</h3>
+        <p>Measure automation success by the net preservation and expansion of human operational scope — not by labor reduction. Every deployment should be able to show, in a ledger, what humans can still do that they could do before.</p>
+      </div>
+      <div class="card">
+        <p class="k">PRESCRIPTION III</p>
+        <h3>Type-Safe Governance</h3>
+        <p>Implement cryptographic runtime boundaries — the Runtime Trust Protocol and OECIA operational envelopes — that make it structurally impossible for autonomous execution to override human command domains. Governance as a type system, not a policy document.</p>
+      </div>
+      <div class="card">
+        <p class="k">THE HONEST CAVEAT</p>
+        <h3>Checkpoints ≠ attention</h3>
+        <p>Cryptography can enforce that a checkpoint exists. It cannot force a human to think at it. Rubber-stamping scales; cognitive liveness is the unsolved problem, and any friction regime must price the cost honestly or the enterprise will route around it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="whitepaper">
+  <div class="wrap">
+    <p class="sec-label">04 — INAUGURAL WHITEPAPER</p>
+    <div class="paper">
+      <p class="doc">WORKING PAPER № 001</p>
+      <h3>The Approver Economy and the Architecture of Human Agency Loss</h3>
+      <div class="abstract">
+        <p>Frontier AI discourse has fixated on sudden, catastrophic misalignment — the rogue system, the treacherous turn. This paper argues that fixation is a category error. The dominant risk pathway of the next decade is <strong style="color:var(--ink);font-weight:500">gradual systemic disempowerment</strong>: the slow, incentive-aligned migration of operational authority from human institutions to autonomous systems, with no adversary required and no alarm to sound.</p>
+        <p>We formalize the transfer through three mechanisms — the Approver Economy, the Competence Trap, and the Leverage Deficit — trace its four stages from delegation to irreversibility, and propose a measurement discipline (the Agency Balance Sheet) alongside two architectural interventions (strategic friction, type-safe governance) for preserving human command in automated institutions.</p>
+      </div>
+      <div class="outline">
+        <div><span class="rn">§ I</span><span><span class="rt">The default outcome</span><br><span class="rd">Why efficiency, not malice, is the engine of agency loss.</span></span></div>
+        <div><span class="rn">§ II</span><span><span class="rt">The three mechanisms</span><br><span class="rd">Approver Economy · Competence Trap · Leverage Deficit.</span></span></div>
+        <div><span class="rn">§ III</span><span><span class="rt">The four stages</span><br><span class="rd">Delegation → Dependence → Atrophy → Irreversibility.</span></span></div>
+        <div><span class="rn">§ IV</span><span><span class="rt">The measurement problem</span><br><span class="rd">You cannot preserve what you do not ledger: the Agency Balance Sheet.</span></span></div>
+        <div><span class="rn">§ V</span><span><span class="rt">Prescriptions</span><br><span class="rd">Strategic friction, type-safe governance, and the liveness problem.</span></span></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="mailto:research@disempowerment.com?subject=Whitepaper%20No.%20001%20request">REQUEST THE FULL PAPER</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="asset">
+  <div class="wrap">
+    <p class="sec-label">05 — THE ASSET</p>
+    <h2><span class="n">05</span>A name for the doctrine, held as research infrastructure.</h2>
+    <div class="acq">
+      <p><strong style="color:var(--ink);font-weight:500">disempowerment.com</strong> is an independent research clearinghouse on human agency architecture and institutional governance — built for AI safety institutes, governance think-tanks, academic policy groups, and enterprise risk teams. It is held as a strategic asset: the canonical address for the study of how humans keep command of the systems they build.</p>
+      <p>For research partnerships or acquisition inquiries:<br><a href="mailto:acquisitions@disempowerment.com">acquisitions@disempowerment.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <p>© 2026 DISEMPOWERMENT.COM</p>
+    <p>AN INDEPENDENT RESEARCH CLEARINGHOUSE ON HUMAN AGENCY</p>
+  </div>
+</footer>
+
+</body>
+</html>
